@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.farasatnovruzov.newsappjava.ui.NewsListFragment"
+        android:label="fragment_news_list"
+        tools:layout="@layout/fragment_news_list" />
+    <fragment
+        android:id="@+id/favourite"
+        android:name="com.farasatnovruzov.newsappjava.ui.NewsFavFragment"
+        android:label="fragment_news_fav"
+        tools:layout="@layout/fragment_news_fav" />
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.farasatnovruzov.newsappjava.ui.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/search"
+        android:name="com.farasatnovruzov.newsappjava.ui.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/details"
+        android:name="com.farasatnovruzov.newsappjava.ui.NewsDetailsFragment"
+        android:label="NewsDetailsFragment" />
+
+</navigation>

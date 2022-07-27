@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorAccent">#03DAC5</color>
+
+<!--    //dark theme colors-->
+    <color name="dark_primary_color">#222222</color>
+    <color name="dark_primary_dark_color">#2E2E2E</color>
+    <color name="dark_bg_color">#353535</color>
+    <color name="dark_text_color">#fafafa</color>
+    <color name="dark_icon_tint_color">#777777</color>
+
+<!--    //light theme colors-->
+    <color name="light_text_color">#777777</color>
+    <color name="light_bg_color">#ffffff</color>
+
+<!--    //amoled theme colors-->
+    <color name="amoled_primary_color">#000000</color>
+    <color name="amoled_primary_dark_color">#000000</color>
+    <color name="amoled_bg_color">#000000</color>
+
+<!--    //news background color-->
+
+    <color name="purple">#905EE8</color>
+    <color name="red">#F96335</color>
+<!--    <color name="black">#1E1E1E</color>--> //black has already defined in above
+    <color name="blue">#008DFC</color>
+    <color name="yellow">#FED149</color>
+
+
+
+
+
+
+
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+<!--    <color name="colorAccent">#03DAC5</color>-->
+
+
+<!--    &lt;!&ndash;    news image background colors &ndash;&gt;-->
+<!--    <color name="purple">#905EE8</color>-->
+<!--    <color name="red">#F96335</color>-->
+<!--    <color name="black">#1E1E1E</color>-->
+<!--    <color name="blue">#008DFC</color>-->
+<!--    <color name="yellow">#FED149</color>-->
+
+
+<!--    &lt;!&ndash;    // dark theme colors&ndash;&gt;-->
+<!--    <color name="dark_primary_color">#141414</color>-->
+<!--    <color name="dark_primary_dark_color">#141414</color>-->
+<!--    <color name="dark_bg_color">#141414</color>-->
+<!--    <color name="dark_text_color">#fafafa</color>-->
+<!--    <color name="dark_icon_tint_color">#A2A2A2</color>-->
+
+<!--    &lt;!&ndash;    // light theme colors&ndash;&gt;-->
+<!--    <color name="light_text_color" > #363636</color>-->
+<!--    <color name="light_bg_color" > #ffffff</color>-->
+
+<!--    &lt;!&ndash;    // Amoled theme colors&ndash;&gt;-->
+<!--    <color name="amoled_primary_color" >#000000</color>-->
+<!--    <color name="amoled_primary_dark_color" >#000000</color>-->
+<!--    <color name="amoled_bg_color" >#000000</color>-->
+</resources>

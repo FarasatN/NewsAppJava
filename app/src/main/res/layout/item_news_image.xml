@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="ArticlesImage"
+            type="com.farasatnovruzov.newsappjava.model.Articles" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="250dp">
+
+<!--    //to bind Image View using Databinding we need to create a custom-->
+<!--    Binding Adapter-->
+
+    <ImageView
+
+        glide_url="@{ArticlesImage.urlToImage}"
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        />
+<!--    //I'll also create a custom binding adapter for news background color-->
+<!--    set_background="@{ArticlesImage.urlToImage}"-->
+    <ImageView
+        android:background="@color/blue"
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:alpha="0.8"/>
+
+<!--    glide_circular="@{NewsItemImage.userImage}"-->
+    <ImageView
+        android:id="@+id/item_news_img_userimg"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:text="@{ArticlesImage.title}"
+        android:textColor="@color/dark_text_color"
+        android:id="@+id/item_news_img_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/item_news_img_userimg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+    <TextView
+        android:text="@{ArticlesImage.author}"
+        android:textColor="@color/dark_text_color"
+        android:id="@+id/item_news_img_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_news_img_userimg"
+        app:layout_constraintStart_toEndOf="@+id/item_news_img_userimg"
+        app:layout_constraintTop_toTopOf="@+id/item_news_img_userimg" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
