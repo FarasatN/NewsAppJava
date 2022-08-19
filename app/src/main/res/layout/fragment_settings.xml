@@ -10,43 +10,27 @@
 
 
     <TextView
-        android:textColor="?attr/text_color"
-        android:id="@+id/tv_theme_info"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:text="@string/themes_intro"
-        android:lineSpacingExtra="8sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
-
-    <TextView
-        android:textStyle="bold"
-        android:textColor="?attr/text_color"
         android:id="@+id/tv_choose_theme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp"
         android:text="Choose your preferred theme"
+        android:layout_marginTop="16dp"
+        android:textColor="?attr/text_color"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_theme_info" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <RadioGroup
         android:id="@+id/rg_theme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_choose_theme">
+        app:layout_constraintTop_toBottomOf="@+id/tv_choose_theme"
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/rb_light"
@@ -67,7 +51,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Dark Theme Amoled"
-            android:textColor="?attr/text_color" />
+            android:textColor="?attr/text_color"
+            android:visibility="gone"/>
     </RadioGroup>
 
 
@@ -76,23 +61,27 @@
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="Choose your preferred language"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Choose your preferred language for news"
         android:textColor="?attr/text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rg_theme" />
 
+
+
     <RadioGroup
         android:id="@+id/rg_lang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_lang_info">
+        app:layout_constraintTop_toBottomOf="@+id/tv_lang_info"
+        android:orientation="horizontal"
+        >
 
         <RadioButton
             android:id="@+id/rb_en"
@@ -102,7 +91,7 @@
             android:textColor="?attr/text_color" />
 
         <RadioButton
-            android:id="@+id/rb_tur"
+            android:id="@+id/rb_tr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Turkish"
@@ -121,7 +110,84 @@
             android:layout_height="wrap_content"
             android:text="German"
             android:textColor="?attr/text_color" />
+    </RadioGroup>
 
+
+    <TextView
+        android:id="@+id/tv_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Choose your preferred category for news"
+        android:textColor="?attr/text_color"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rg_lang" />
+
+
+    <RadioGroup
+        android:id="@+id/rg_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_category"
+        >
+
+        <RadioButton
+            android:id="@+id/rb_general"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="General"
+            android:textColor="?attr/text_color" />
+
+        <RadioButton
+            android:id="@+id/rb_science"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Science"
+            android:textColor="?attr/text_color" />
+
+        <RadioButton
+            android:id="@+id/rb_technology"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Technology"
+            android:textColor="?attr/text_color" />
+
+        <RadioButton
+            android:id="@+id/rb_health"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health"
+            android:textColor="?attr/text_color" />
+
+        <RadioButton
+            android:id="@+id/rb_sports"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sports"
+            android:textColor="?attr/text_color" />
+
+        <RadioButton
+            android:id="@+id/rb_entertainment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entertainment"
+            android:textColor="?attr/text_color" />
+
+        <RadioButton
+            android:id="@+id/rb_business"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Business"
+            android:textColor="?attr/text_color" />
 
     </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

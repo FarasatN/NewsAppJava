@@ -9,12 +9,19 @@
         android:id="@+id/home"
         android:name="com.farasatnovruzov.newsappjava.ui.NewsListFragment"
         android:label="fragment_news_list"
-        tools:layout="@layout/fragment_news_list" />
-    <fragment
-        android:id="@+id/favourite"
-        android:name="com.farasatnovruzov.newsappjava.ui.NewsFavFragment"
-        android:label="fragment_news_fav"
-        tools:layout="@layout/fragment_news_fav" />
+        tools:layout="@layout/fragment_news_list" >
+        <action
+            android:id="@+id/action_home_to_details"
+            app:destination="@id/details" />
+        <action
+            android:id="@+id/action_home_to_favourite"
+            app:destination="@id/favourite" />
+    </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/favourite"-->
+<!--        android:name="com.farasatnovruzov.newsappjava.ui.NewsFavFragment"-->
+<!--        android:label="fragment_news_fav"-->
+<!--        tools:layout="@layout/fragment_news_fav" />-->
     <fragment
         android:id="@+id/settings"
         android:name="com.farasatnovruzov.newsappjava.ui.SettingsFragment"
@@ -28,6 +35,30 @@
     <fragment
         android:id="@+id/details"
         android:name="com.farasatnovruzov.newsappjava.ui.NewsDetailsFragment"
-        android:label="NewsDetailsFragment" />
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_search"
+        >
+        <argument
+            android:name="url"
+            app:argType="string"
+            android:defaultValue="https://newsapi.org/" />
+        <action
+            android:id="@+id/action_details_to_home"
+            app:destination="@id/home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favourite"
+        android:name="com.farasatnovruzov.newsappjava.ui.NewsFavFragment"
+        android:label="fragment_news_fav"
+        tools:layout="@layout/fragment_news_fav" >
+        <action
+            android:id="@+id/action_favourite_to_details"
+            app:destination="@id/details" />
+        <action
+            android:id="@+id/action_favourite_to_home"
+            app:destination="@id/home" />
+    </fragment>
+
 
 </navigation>

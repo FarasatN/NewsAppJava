@@ -12,12 +12,12 @@
 <!--    //dark theme colors-->
     <color name="dark_primary_color">#222222</color>
     <color name="dark_primary_dark_color">#2E2E2E</color>
-    <color name="dark_bg_color">#353535</color>
+    <color name="dark_bg_color">#CACACA</color>
     <color name="dark_text_color">#fafafa</color>
-    <color name="dark_icon_tint_color">#777777</color>
+    <color name="dark_icon_tint_color">#CACACA</color>
 
 <!--    //light theme colors-->
-    <color name="light_text_color">#777777</color>
+    <color name="light_text_color">#CACACA</color>
     <color name="light_bg_color">#ffffff</color>
 
 <!--    //amoled theme colors-->
@@ -32,7 +32,10 @@
 <!--    <color name="black">#1E1E1E</color>--> //black has already defined in above
     <color name="blue">#008DFC</color>
     <color name="yellow">#FED149</color>
-
+    <color name="green">#009688</color>
+    <color name="light_green">#01C9B6</color>
+    <color name="bright_green">#FF9800</color>
+    <color name="fab_icon_tint_color">#878787</color>
 
 
 

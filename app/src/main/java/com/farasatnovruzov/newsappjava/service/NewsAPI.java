@@ -1,7 +1,8 @@
-package com.farasatnovruzov.newsappjava.api;
+package com.farasatnovruzov.newsappjava.service;
 
 
 import com.farasatnovruzov.newsappjava.model.NewsResponse;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -10,12 +11,14 @@ public interface NewsAPI {
 
     @GET("v2/top-headlines")
     Call<NewsResponse> getBreakingNews(
-            @Query("country")
-            String countryCode,
+//            @Query("country")
+//            String countryCode,
+            @Query("language")
+            String langCode,
             @Query("category")
             String category,
-            @Query("page")
-            int pageNumber,
+            @Query("pageSize")
+            int pageSize,
             @Query("apiKey")
             String apiKey
     );
@@ -25,8 +28,8 @@ public interface NewsAPI {
     Call<NewsResponse> searchForNews(
             @Query("q")
             String searchQuery,
-            @Query("page")
-            int pageNumber,
+            @Query("pageSize")
+            int pageSize,
             @Query("apiKey")
             String apiKey
     );

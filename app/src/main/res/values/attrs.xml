@@ -6,7 +6,7 @@
         <attr name="background_color" format="color"/>
         <attr name="text_color" format="color"/>
         <attr name="text_hint_color" format="color"/>
+        <attr name="bottom_icon_color" format="color"/>
 
-        
     </declare-styleable>
 </resources>
