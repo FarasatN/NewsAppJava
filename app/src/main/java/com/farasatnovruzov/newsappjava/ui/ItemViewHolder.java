@@ -7,7 +7,7 @@ import com.farasatnovruzov.newsappjava.model.Articles;
 
 public class ItemViewHolder extends BaseViewHolder{
 
-    ItemNewsBinding itemNewsBinding;
+    private ItemNewsBinding itemNewsBinding;
 
     public ItemViewHolder(@NonNull ItemNewsBinding itemNewsBinding) {
         super(itemNewsBinding.getRoot());

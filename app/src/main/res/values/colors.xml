@@ -30,12 +30,19 @@
     <color name="purple">#905EE8</color>
     <color name="red">#F96335</color>
 <!--    <color name="black">#1E1E1E</color>--> //black has already defined in above
-    <color name="blue">#008DFC</color>
+<!--    <color name="blue">#008DFC</color>-->
     <color name="yellow">#FED149</color>
     <color name="green">#009688</color>
     <color name="light_green">#01C9B6</color>
     <color name="bright_green">#FF9800</color>
     <color name="fab_icon_tint_color">#878787</color>
+
+
+
+    <color name="blue">#FF005a9c</color>
+    <color name="lightBlue">#ff6691c4</color>
+    <color name="lighterBlue">#ffcdd8ec</color>
+    <color name="controlBackground">#ffffffff</color>
 
 
 

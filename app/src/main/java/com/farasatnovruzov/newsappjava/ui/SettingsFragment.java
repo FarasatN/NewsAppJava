@@ -26,6 +26,10 @@ public class SettingsFragment extends Fragment {
     private RadioGroup rgCat;
     private RadioButton rbGen, rbSci,rbTec,rbSpo,rbHea,rbEnt,rbBus;
 
+    private RadioGroup rgAPI;
+    private RadioButton rbApi1, rbApi2,rbApi3,rbApi4,rbApi5,rbApi6,rbApi7,rbApi8,rbApi9,rbApi10,rbApi11,rbApi12;
+
+
     public SettingsFragment() {
         // Required empty public constructor
     }
@@ -50,6 +54,7 @@ public class SettingsFragment extends Fragment {
         initViewTheme(view);
         initViewLang(view);
         initViewCategory(view);
+        initViewAPI(view);
     }
 
     private void initViewTheme(View view) {
@@ -108,7 +113,7 @@ public class SettingsFragment extends Fragment {
                     case R.id.rb_de: settings.setLanguage(AppSettings.LANG_DE);break;
                     default: settings.setLanguage(AppSettings.LANG_EN);
                 }
-                getActivity().recreate();
+//                getActivity().recreate();
 
             }
         });
@@ -151,7 +156,64 @@ public class SettingsFragment extends Fragment {
                     default: settings.setCategory(AppSettings.CAT_GEN);
 
                 }
-                getActivity().recreate();
+//                getActivity().recreate();
+
+            }
+        });
+
+    }
+
+    private void initViewAPI(View view) {
+        rgAPI = view.findViewById(R.id.rg_api);
+        rbApi1 = view.findViewById(R.id.rb_api1);
+        rbApi2 = view.findViewById(R.id.rb_api2);
+        rbApi3 = view.findViewById(R.id.rb_api3);
+        rbApi4 = view.findViewById(R.id.rb_api4);
+        rbApi5 = view.findViewById(R.id.rb_api5);
+        rbApi6 = view.findViewById(R.id.rb_api6);
+        rbApi7 = view.findViewById(R.id.rb_api7);
+        rbApi8 = view.findViewById(R.id.rb_api8);
+        rbApi9 = view.findViewById(R.id.rb_api9);
+        rbApi10 = view.findViewById(R.id.rb_api10);
+        rbApi11 = view.findViewById(R.id.rb_api11);
+        rbApi12 = view.findViewById(R.id.rb_api12);
+
+        switch (settings.getApi()) {
+            case AppSettings.API_1: rbApi1.setChecked(true);break;
+            case AppSettings.API_2: rbApi2.setChecked(true);break;
+            case AppSettings.API_3: rbApi3.setChecked(true);break;
+            case AppSettings.API_4: rbApi4.setChecked(true);break;
+            case AppSettings.API_5: rbApi5.setChecked(true);break;
+            case AppSettings.API_6: rbApi6.setChecked(true);break;
+            case AppSettings.API_7: rbApi7.setChecked(true);break;
+            case AppSettings.API_8: rbApi8.setChecked(true);break;
+            case AppSettings.API_9: rbApi9.setChecked(true);break;
+            case AppSettings.API_10: rbApi10.setChecked(true);break;
+            case AppSettings.API_11: rbApi11.setChecked(true);break;
+            case AppSettings.API_12: rbApi12.setChecked(true);break;
+            default: rbApi1.setChecked(true);
+        }
+
+        rgAPI.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+                switch (checkedId) {
+                    case R.id.rb_api1: settings.setApi(AppSettings.API_1);break;
+                    case R.id.rb_api2: settings.setApi(AppSettings.API_2);break;
+                    case R.id.rb_api3: settings.setApi(AppSettings.API_3);break;
+                    case R.id.rb_api4: settings.setApi(AppSettings.API_4);break;
+                    case R.id.rb_api5: settings.setApi(AppSettings.API_5);break;
+                    case R.id.rb_api6: settings.setApi(AppSettings.API_6);break;
+                    case R.id.rb_api7: settings.setApi(AppSettings.API_7);break;
+                    case R.id.rb_api8: settings.setApi(AppSettings.API_8);break;
+                    case R.id.rb_api9: settings.setApi(AppSettings.API_9);break;
+                    case R.id.rb_api10: settings.setApi(AppSettings.API_10);break;
+                    case R.id.rb_api11: settings.setApi(AppSettings.API_11);break;
+                    case R.id.rb_api12: settings.setApi(AppSettings.API_12);break;
+                    default: settings.setApi(AppSettings.API_1);
+
+                }
+//                getActivity().recreate();
 
             }
         });

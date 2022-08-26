@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="LightTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/green</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="text_color">@color/green</item>
+        <item name="background_color">@color/light_bg_color</item>
+        <item name="text_hint_color">@color/dark_icon_tint_color</item>
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+</resources>

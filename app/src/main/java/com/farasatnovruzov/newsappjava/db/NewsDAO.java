@@ -1,16 +1,8 @@
 package com.farasatnovruzov.newsappjava.db;
 
 
-import androidx.room.Dao;
-import androidx.room.Delete;
-import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
-import androidx.room.Query;
 
-import com.farasatnovruzov.newsappjava.model.Articles;
-
-import java.util.List;
-
+/*
 @Dao
 public interface NewsDAO {
 
@@ -26,3 +18,5 @@ public interface NewsDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     Long upsert(Articles news);
 }
+
+ */

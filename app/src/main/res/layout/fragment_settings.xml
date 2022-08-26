@@ -13,9 +13,9 @@
         android:id="@+id/tv_choose_theme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="14dp"
         android:text="Choose your preferred theme"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="30dp"
         android:textColor="?attr/text_color"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,7 @@
         android:id="@+id/rg_theme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="14dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_choose_theme"
@@ -34,21 +34,21 @@
 
         <RadioButton
             android:id="@+id/rb_light"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Light Theme"
             android:textColor="?attr/text_color" />
 
         <RadioButton
             android:id="@+id/rb_dark"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dark Theme"
             android:textColor="?attr/text_color" />
 
         <RadioButton
             android:id="@+id/rb_amoled"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dark Theme Amoled"
             android:textColor="?attr/text_color"
@@ -61,22 +61,19 @@
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
         android:text="Choose your preferred language for news"
         android:textColor="?attr/text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rg_theme" />
-
-
-
     <RadioGroup
         android:id="@+id/rg_lang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="14dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_lang_info"
@@ -85,31 +82,151 @@
 
         <RadioButton
             android:id="@+id/rb_en"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
             android:text="English"
             android:textColor="?attr/text_color" />
 
         <RadioButton
             android:id="@+id/rb_tr"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
             android:text="Turkish"
             android:textColor="?attr/text_color" />
 
         <RadioButton
             android:id="@+id/rb_ru"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
             android:text="Russian"
             android:textColor="?attr/text_color" />
 
         <RadioButton
             android:id="@+id/rb_de"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
             android:text="German"
             android:textColor="?attr/text_color" />
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/tv_api"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
+        android:text="Change API key for limitless usage"
+        android:textColor="?attr/text_color"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rg_lang" />
+
+    <RadioGroup
+        android:id="@+id/rg_api"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_api"
+        android:orientation="horizontal"
+        >
+
+        <RadioButton
+            android:id="@+id/rb_api1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textColor="?attr/text_color"
+            android:scaleX="0.75"
+            android:scaleY="0.75" />
+
+        <RadioButton
+            android:id="@+id/rb_api2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textColor="?attr/text_color"
+            android:scaleX="0.75"
+            android:scaleY="0.75" />
+
+        <RadioButton
+            android:id="@+id/rb_api3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textColor="?attr/text_color"
+            android:scaleX="0.75"
+            android:scaleY="0.75" />
+
+        <RadioButton
+            android:id="@+id/rb_api4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textColor="?attr/text_color"
+            android:scaleX="0.75"
+            android:scaleY="0.75" />
+        <RadioButton
+            android:id="@+id/rb_api5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textColor="?attr/text_color"
+            android:scaleX="0.75"
+            android:scaleY="0.75" />
+        <RadioButton
+            android:id="@+id/rb_api6"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textColor="?attr/text_color"
+            android:scaleX="0.75"
+            android:scaleY="0.75" />
+        <RadioButton
+            android:id="@+id/rb_api7"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textColor="?attr/text_color"
+            android:scaleX="0.75"
+            android:scaleY="0.75" />
+        <RadioButton
+            android:id="@+id/rb_api8"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textColor="?attr/text_color"
+            android:scaleX="0.75"
+            android:scaleY="0.75" />
+        <RadioButton
+            android:id="@+id/rb_api9"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textColor="?attr/text_color"
+            android:scaleX="0.75"
+            android:scaleY="0.75"
+            />
+        <RadioButton
+            android:id="@+id/rb_api10"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textColor="?attr/text_color"
+            android:scaleX="0.75"
+            android:scaleY="0.75"
+            />
+        <RadioButton
+            android:id="@+id/rb_api11"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textColor="?attr/text_color"
+            android:scaleX="0.75"
+            android:scaleY="0.75"
+            />
+        <RadioButton
+            android:id="@+id/rb_api12"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textColor="?attr/text_color"
+            android:scaleX="0.75"
+            android:scaleY="0.75"
+            />
+
     </RadioGroup>
 
 
@@ -117,15 +234,15 @@
         android:id="@+id/tv_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="14dp"
         android:text="Choose your preferred category for news"
         android:textColor="?attr/text_color"
         android:textStyle="bold"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rg_lang" />
+        app:layout_constraintTop_toBottomOf="@+id/rg_api" />
 
 
     <RadioGroup
@@ -134,7 +251,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="14dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_category"
         >
@@ -142,49 +259,49 @@
         <RadioButton
             android:id="@+id/rb_general"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:text="General"
             android:textColor="?attr/text_color" />
 
         <RadioButton
             android:id="@+id/rb_science"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:text="Science"
             android:textColor="?attr/text_color" />
 
         <RadioButton
             android:id="@+id/rb_technology"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:text="Technology"
             android:textColor="?attr/text_color" />
 
         <RadioButton
             android:id="@+id/rb_health"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:text="Health"
             android:textColor="?attr/text_color" />
 
         <RadioButton
             android:id="@+id/rb_sports"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:text="Sports"
             android:textColor="?attr/text_color" />
 
         <RadioButton
             android:id="@+id/rb_entertainment"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:text="Entertainment"
             android:textColor="?attr/text_color" />
 
         <RadioButton
             android:id="@+id/rb_business"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:text="Business"
             android:textColor="?attr/text_color" />
 

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.farasatnovruzov.newsappjava.R;
@@ -26,10 +26,11 @@ public class NewsFavFragment extends Fragment {
 
     private RecyclerView rvFav;
     private FavListAdapter adapter;
-    private Articles article;
     private ArrayList<Articles> favList;
-    private ArrayList<Articles> articleList;
-    private ArrayList<Articles> myList;
+
+//    private Articles article;
+//    private ArrayList<Articles> articleList;
+//    private ArrayList<Articles> myList;
 //    NewsFavFragment favFragment;
 
     public NewsFavFragment() {
@@ -54,11 +55,10 @@ public class NewsFavFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 //        Navigation.findNavController(view).navigate(R.id.action_favourite_to_home);
-
-        article = new Articles();
+//        article = new Articles();
+//        articleList = new ArrayList<>();
+//        myList = new ArrayList<>();
         favList = new ArrayList<>();
-        articleList = new ArrayList<>();
-        myList = new ArrayList<>();
 
 //        loadFavFromPref();
         loadFavListFromPref();
@@ -81,7 +81,7 @@ public class NewsFavFragment extends Fragment {
 
     private void initFavList(@NonNull View view) {
         rvFav = view.findViewById(R.id.rv_fav);
-        rvFav.setLayoutManager(new GridLayoutManager(getContext(),1));
+        rvFav.setLayoutManager(new LinearLayoutManager(getContext()));
         rvFav.setHasFixedSize(true);
         adapter = new FavListAdapter(new DiffUtilNewsItemCallBack(),getActivity());
         rvFav.setAdapter(adapter);

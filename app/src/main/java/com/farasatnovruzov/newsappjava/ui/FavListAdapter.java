@@ -8,6 +8,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Html;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +35,8 @@ import java.util.ArrayList;
 
 public class FavListAdapter extends ListAdapter<Articles,BaseViewHolder> {
 
-    SharedPreferences sharedPreferences;
-    ArrayList<Articles> favList = new ArrayList<>();
+    private SharedPreferences sharedPreferences;
+    private ArrayList<Articles> favList = new ArrayList<>();
 //    boolean removedItem = false;
 
     @Override
@@ -65,10 +67,8 @@ public class FavListAdapter extends ListAdapter<Articles,BaseViewHolder> {
           holder.itemView.findViewById(R.id.ivFavArticleImage).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
 //                    if (isLongClick == false) { // this checks to see if it was long clicked
 //                        // Perform your action here
-
                     getFavDetails(view, position);
                 }
 //                    isLongClick = false;
@@ -263,7 +263,7 @@ public class FavListAdapter extends ListAdapter<Articles,BaseViewHolder> {
             SharedPreferences.Editor editor = sharedPreferences.edit();
 //                editor.remove("favs").apply();
             Gson gson = new Gson();
-            String json = sharedPreferences.getString("favs", "");
+            String json = sharedPreferences.getString("favs", null);
             Type type = new TypeToken<ArrayList<Articles>>() {
             }.getType();
             favList = gson.fromJson(json, type);
@@ -293,7 +293,10 @@ public class FavListAdapter extends ListAdapter<Articles,BaseViewHolder> {
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
 
-            Toast.makeText(holder.itemView.getContext(), "Article removed from favourite list", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(holder.itemView.getContext(), "Article removed from favourite list", Toast.LENGTH_SHORT).show();
+            Toast toast = Toast.makeText(holder.itemView.getContext(), Html.fromHtml("<font color='#FFC55C' ><b>" + "Article removed from favourite list" + "</b></font>"), Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.TOP, 0, 0);
+            toast.show();
 
         }catch (Exception e){
             e.printStackTrace();

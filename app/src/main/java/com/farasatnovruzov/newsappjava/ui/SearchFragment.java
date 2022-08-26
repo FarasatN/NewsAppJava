@@ -13,7 +13,7 @@ import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.farasatnovruzov.newsappjava.R;
@@ -34,18 +34,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SearchFragment extends Fragment {
 
-    RecyclerView rvSearch;
-    NewsListAdapter adapter;
-    EditText searchText;
-    ProgressBar searchProgressBar;
-    Handler handler = new Handler();
+    private RecyclerView rvSearch;
+    private SearchListAdapter adapter;
+    private EditText searchText;
+    private ProgressBar searchProgressBar;
+    private Handler handler = new Handler();
+    private String searchKey = "";
+    private Retrofit retrofit;
+    private ArrayList<Articles> newsList;
+//    private NestedScrollView nestedSV;
 
-    String searchKey = "";
-
-    Retrofit retrofit;
-    ArrayList<Articles> newsList;
-//    private final String BASE_URL = "https://newsapi.org/";
-//    private final String API_KEY = "ea96fc26b3d14df8938fbb351e1200a3";
 
     public SearchFragment() {
         // Required empty public constructor
@@ -58,14 +56,33 @@ public class SearchFragment extends Fragment {
             @Override
             public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
                 if (response.isSuccessful()) {
-                    assert response.body() != null;
-                    if (response.body().status.equals("error")){
+                    if (response.body() != null) {
+                        if (response.body().status.equals("error")) {
 //                        System.out.println(response.body().status);
-                        Constants.API = Constants.API2;
-                    }else if (response.body().status.equals("error")){
-                        Constants.API = Constants.API3;
-                    }else if (response.body().status.equals("error")){
-                        Constants.API = Constants.API1;
+                            Constants.API = Constants.API2;
+                            System.out.println("API2");
+                            loadData();
+                            if (response.body().status.equals("error")) {
+                                Constants.API = Constants.API3;
+                                System.out.println("API3");
+                                loadData();
+                                if (response.body().status.equals("error")) {
+                                    Constants.API = Constants.API4;
+                                    System.out.println("API4");
+                                    loadData();
+                                    if (response.body().status.equals("error")) {
+                                        Constants.API = Constants.API1;
+                                        System.out.println("API1");
+                                        loadData();
+                                        if (response.body().status.equals("error")) {
+                                            Constants.API = Constants.API5;
+                                            System.out.println("API1");
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
 //                    System.out.println(response.body());
 //                    for (Articles item : response.body().articles) {
@@ -86,17 +103,15 @@ public class SearchFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        //        Constants.API = Constants.API3;
         super.onCreate(savedInstanceState);
-        Constants.API = Constants.API1;
+        newsList = new ArrayList<>();
+//        RetrofitInstance.getInstance();
         Gson gson = new GsonBuilder().setLenient().create();
         retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
-
-        newsList = new ArrayList<>();
-
-
 
     }
 
@@ -116,15 +131,37 @@ public class SearchFragment extends Fragment {
 
         setSearchEmpty();
 
-
+//        nestedSV = view.findViewById(R.id.nested_SV);
         rvSearch = view.findViewById(R.id.search_rv);
-        rvSearch.setLayoutManager(new GridLayoutManager(getContext(), 1));
+        rvSearch.setLayoutManager(new LinearLayoutManager(getContext()));
         rvSearch.setHasFixedSize(true);
-        adapter = new NewsListAdapter(new DiffUtilNewsItemCallBack());
+        adapter = new SearchListAdapter(new DiffUtilNewsItemCallBack());
         rvSearch.setAdapter(adapter);
-//        FakeDataSource fakeDataSource = new FakeDataSource();
-//        adapter.submitList(fakeDataSource.getFakeListNews());
 
+        /*
+        nestedSV.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (scrollY == v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight()) {
+                    // in this method we are incrementing page number,
+                    // making progress bar visible and calling get data method.
+                    if (page<=limit){
+                        page+=20;
+                    }
+                    // on below line we are making our progress bar visible.
+//                    loadingPB.setVisibility(View.VISIBLE);
+//                        if (page < 10) {
+                    // on below line we are again calling
+                    // a method to load data in our array list.
+//                            loadNewsFromPref();
+                    loadData();
+                    adapter.submitList(newsList);
+                    adapter.notifyDataSetChanged();
+//                        }
+                }
+            }
+        });
+        */
         searchText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -143,7 +180,7 @@ public class SearchFragment extends Fragment {
                         loadData();
 
                         adapter.submitList(newsList);
-
+                        System.out.println("list size: "+newsList.size());
                         adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
                             @Override
                             public void onItemRangeInserted(int positionStart, int itemCount) {
@@ -165,7 +202,7 @@ public class SearchFragment extends Fragment {
 
                         setSearchEmpty();
                     }
-                }, 1000);
+                }, 1300);
 
             }
 
@@ -184,7 +221,7 @@ public class SearchFragment extends Fragment {
     }
 
     private void setSearchEmpty() {
-        if (searchText.getText().toString().trim().isEmpty()) {
+        if (searchText.getText().toString().trim().isEmpty() || searchText.getText().toString().trim().toCharArray().length==0) {
             searchProgressBar.setVisibility(View.GONE);
             searchKey = "";
             newsList.clear();

@@ -7,7 +7,7 @@ import com.farasatnovruzov.newsappjava.model.Articles;
 
 public class ItemFavViewHolder extends BaseViewHolder{
 
-    ItemFavBinding itemFavBinding;
+    private ItemFavBinding itemFavBinding;
 
     public ItemFavViewHolder(@NonNull ItemFavBinding itemFavBinding) {
         super(itemFavBinding.getRoot());

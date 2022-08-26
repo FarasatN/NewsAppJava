@@ -9,6 +9,8 @@ import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,20 +42,20 @@ import java.util.ArrayList;
 
 public class NewsDetailsFragment extends Fragment implements ViewTreeObserver.OnScrollChangedListener {
 
-    FloatingActionButton favButton;
-    ProgressBar detailsProgressBar;
-    SwipeRefreshLayout detailsSwipeRefreshLayout;
-    WebView webView;
-    ArrayList<Articles> favList;
-    ArrayList<Articles> articleList;
+    private FloatingActionButton favButton;
+    private ProgressBar detailsProgressBar;
+    private SwipeRefreshLayout detailsSwipeRefreshLayout;
+    private WebView webView;
+    private ArrayList<Articles> favList;
+    private ArrayList<Articles> articleList;
 //    ArrayList<Articles> myList;
-    Articles article,articleFromFav;
+    private Articles article,articleFromFav;
 //    HashMap<Integer, Articles> favMap;
-    String urlFromHome;
-    boolean clickedFav = false;
-    int position = 0;
-    Handler handler = new Handler();
-    int counter = 0;
+    private String urlFromHome;
+    private boolean clickedFav = false;
+    private int position = 0;
+    private Handler handler = new Handler();
+    private int counter = 0;
 
 //    Articles articleFromAdapter;
 
@@ -250,6 +252,7 @@ public class NewsDetailsFragment extends Fragment implements ViewTreeObserver.On
 
         if (getArguments().getBoolean("from_saved",false)){
             webView.loadUrl(getArguments().getString("from_fav_url"));
+
 //            counter = 1;
 //            clickedFav = true;
 //            if (counter==1){
@@ -270,6 +273,10 @@ public class NewsDetailsFragment extends Fragment implements ViewTreeObserver.On
 //            clickedFav = true;
 //            System.out.println("counter in");
         }else if(!(getArguments().getBoolean("from_saved",false))){
+            if (urlFromHome != null) {
+                webView.loadUrl(urlFromHome);
+
+            }
             favButton.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
@@ -290,6 +297,13 @@ public class NewsDetailsFragment extends Fragment implements ViewTreeObserver.On
         }else{
             if (urlFromHome != null) {
                 webView.loadUrl(urlFromHome);
+                webView.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                        webView.loadUrl(getArguments().getString("from_fav_url"));
+
+                    }
+                });
                 if (webView.getUrl() == null) {
                     Navigation.findNavController(view).navigate(R.id.action_details_to_home);
                     favButton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
@@ -299,11 +313,18 @@ public class NewsDetailsFragment extends Fragment implements ViewTreeObserver.On
             }
         }
         detailsProgressBar.setVisibility(View.GONE);
-        webView.setWebViewClient(new WebViewClient());
+
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
         webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+//        webView.getSettings().getDisplayZoomControls();
+        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+        webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setLoadWithOverviewMode(true);
+        webView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
         webView.getSettings().setAppCacheEnabled(false);
         webView.getSettings().setBuiltInZoomControls(true);
+
         webView.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
@@ -405,8 +426,10 @@ public class NewsDetailsFragment extends Fragment implements ViewTreeObserver.On
 //                        removeFavItem(holder,position);
                             favList.remove(article);
                             saveList(favList);
-                            Toast.makeText(view.getContext(), "Article removed from favourite list", Toast.LENGTH_SHORT).show();
-
+//                            Toast.makeText(view.getContext(), "Article removed from favourite list", Toast.LENGTH_SHORT).show();
+                            Toast toast = Toast.makeText(view.getContext(), Html.fromHtml("<font color='#FFC55C' ><b>" + "Article removed from favourite list" + "</b></font>"), Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.TOP, 0, 0);
+                            toast.show();
                             dialog.cancel();
                         }
                     });

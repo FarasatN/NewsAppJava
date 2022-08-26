@@ -30,17 +30,31 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
+        android:indeterminateTint="@color/light_green"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/search_rv"
-        android:visibility="gone"
-        android:indeterminateTint="@color/light_green"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/search_et" />
+
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:id="@+id/nested_SV"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="70dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:context=".MainActivity">-->
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/search_rv"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,4 +62,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_et"
         app:layout_constraintVertical_bias="0.0" />
+
+<!--        </RelativeLayout>-->
+<!--    </androidx.core.widget.NestedScrollView>-->
+
+<!--    <ProgressBar-->
+<!--        android:id="@+id/pb_loading"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/search_et"-->
+<!--        />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

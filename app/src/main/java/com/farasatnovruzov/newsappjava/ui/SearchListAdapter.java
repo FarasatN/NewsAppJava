@@ -20,7 +20,7 @@ import com.farasatnovruzov.newsappjava.model.Articles;
 
 import org.parceler.Parcels;
 
-public class NewsListAdapter extends ListAdapter<Articles,BaseViewHolder> {
+public class SearchListAdapter extends ListAdapter<Articles,BaseViewHolder> {
 
 
 //    Glide.with(this).load(article.urlToImage).into(ivArticleImage)
@@ -35,23 +35,21 @@ public class NewsListAdapter extends ListAdapter<Articles,BaseViewHolder> {
 //        notifyDataSetChanged();
 //    }
 
-    public NewsListAdapter(@NonNull DiffUtil.ItemCallback<Articles> diffCallback) {
+    public SearchListAdapter(@NonNull DiffUtil.ItemCallback<Articles> diffCallback) {
         super(diffCallback);
     }
 
     @NonNull
     @Override
     public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         // based on the item viewtype we create viewholder
         // we have two viewholder for now : text and image
         // and don't forget that we are going to use data Binding feature to bind our data in the viewholder class
         // we need to configure our viewholders so they can accept a binding layout like so ...
         // new we can instantiate our viewholder safely
 
-
         ItemNewsBinding itemNewsBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
-                        R.layout.item_news,parent,false);
+                R.layout.item_news,parent,false);
         return new ItemViewHolder(itemNewsBinding);
     }
 
@@ -82,7 +80,7 @@ public class NewsListAdapter extends ListAdapter<Articles,BaseViewHolder> {
 
         holder.itemView.findViewById(R.id.tvSource).setOnClickListener(new View.OnClickListener() {
             TextView urlText = holder.itemView.findViewById(R.id.tvSource);
-//            Context context;
+            //            Context context;
             @Override
             public void onClick(View view) {
                 Intent openUrlIntent = new Intent(Intent.ACTION_VIEW,Uri.parse(urlText.getText().toString()));
@@ -108,7 +106,7 @@ public class NewsListAdapter extends ListAdapter<Articles,BaseViewHolder> {
 //                    Actio action = FeedFragmentDirections.actionFeedFragmentToDetailsFragment()
 //                    Navigation.findNavController(v).navigate(action)
         if (getItem(position).url != null) {
-            Navigation.findNavController(view).navigate(R.id.action_home_to_details, bundle);
+            Navigation.findNavController(view).navigate(R.id.action_search_to_details, bundle);
         }
     }
 }

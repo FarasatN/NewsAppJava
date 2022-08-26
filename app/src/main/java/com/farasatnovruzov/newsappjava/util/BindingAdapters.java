@@ -1,13 +1,16 @@
 package com.farasatnovruzov.newsappjava.util;
 
 
+import android.graphics.Color;
 import android.widget.ImageView;
 
 import androidx.core.content.ContextCompat;
 import androidx.databinding.BindingAdapter;
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import com.bumptech.glide.Glide;
 import com.farasatnovruzov.newsappjava.R;
+import com.squareup.picasso.Picasso;
 
 public class BindingAdapters {
 
@@ -15,9 +18,58 @@ public class BindingAdapters {
 
     @BindingAdapter("glide_url")
     public static void loadImg(ImageView imageView,String url) {
-        // we will use glide library to load the image from a url
 
-        Glide.with(imageView.getContext()).load(url).into(imageView);
+        CircularProgressDrawable drawable = new CircularProgressDrawable(imageView.getContext());
+        drawable.setColorSchemeColors(Color.parseColor("#01C9B6"));
+        drawable.setCenterRadius(25f);
+        drawable.setStrokeWidth(5f);
+        // set all other properties as you would see fit and start it
+        drawable.start();
+        if (url!=null){
+            try {
+
+                Picasso.get()
+                        .load(url)
+                        .resize(170,110)
+                        .centerCrop()
+                        .error(android.R.drawable.screen_background_light_transparent)
+                        .placeholder(drawable)
+                                .into(imageView);
+
+
+/*
+                Glide.with(imageView.getContext()).load(url)
+                        .centerCrop()
+                        .timeout(6000)
+//                .error(R.drawable.exclamation)
+                        .listener(new RequestListener<Drawable>() {
+
+                            @Override
+                            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+//                            imageView.setImageResource(R.drawable.exclamation);
+//                            imageView.buildDrawingCache();
+                                imageView.setVisibility(View.INVISIBLE);
+                                return false;
+                            }
+
+                            @Override
+                            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+
+                                return false;
+                            }
+                        })
+//                    .thumbnail(0.5f)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .placeholder(drawable)
+                        .into(imageView);
+
+ */
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+        }
+
         // new let's use this adapter in our xml file
     }
 

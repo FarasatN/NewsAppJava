@@ -31,7 +31,11 @@
         android:id="@+id/search"
         android:name="com.farasatnovruzov.newsappjava.ui.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_search_to_details"
+            app:destination="@id/details" />
+    </fragment>
     <fragment
         android:id="@+id/details"
         android:name="com.farasatnovruzov.newsappjava.ui.NewsDetailsFragment"
