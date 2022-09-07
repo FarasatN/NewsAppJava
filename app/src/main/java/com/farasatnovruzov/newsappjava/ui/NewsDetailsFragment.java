@@ -214,10 +214,11 @@ public class NewsDetailsFragment extends Fragment implements ViewTreeObserver.On
 //                        }
 //                    }
 //                    saveList(favList);
+
                 }
-                if (counter>1){
+//                if (counter>1){
                     counter = 1;
-                }
+//                }
                 }
             });
             clickedFav = true;

@@ -97,7 +97,6 @@ public class NewsListFragment extends Fragment{
                 errorText.setVisibility(View.VISIBLE);
                 recyclerView.setVisibility(View.GONE);
                 newsListProgres.setVisibility(View.GONE);
-                newsListProgres.setVisibility(View.GONE);
                 loadingPB.setVisibility(View.GONE);
             }else {
                 errorText.setVisibility(View.GONE);
@@ -134,7 +133,7 @@ public class NewsListFragment extends Fragment{
 
                         // on below line we are making our progress bar visible.
                         loadingPB.setVisibility(View.VISIBLE);
-                        recyclerView.getRecycledViewPool().clear();
+//                        recyclerView.getRecycledViewPool().clear();
 //                        if (page < 10) {
                             // on below line we are again calling
                             // a method to load data in our array list.
